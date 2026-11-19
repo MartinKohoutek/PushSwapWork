@@ -6,7 +6,7 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 17:55:48 by marti             #+#    #+#             */
-/*   Updated: 2026/11/17 19:15:39 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/18 22:31:21 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,15 +74,4 @@ void	print_operations(const t_context *ctx)
 		op++;
 		left--;
 	}
-}
-
-void	print_bench(const t_context *ctx)
-{
-	print_disorder(ctx->disorder);
-	put_str(STDERR_FILENO, "[bench] strategy: ");
-	put_str(STDERR_FILENO, strategy_name(ctx->config.strategy));
-	put_str(STDERR_FILENO, " / ");
-	put_str(STDERR_FILENO, complexity(ctx->used_strategy));
-	print_count("\n[bench] total_ops", ctx->ops_size, "\n");
-	print_opcount(ctx);
 }

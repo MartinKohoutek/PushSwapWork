@@ -6,7 +6,7 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 09:28:33 by marti             #+#    #+#             */
-/*   Updated: 2026/11/17 11:16:47 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/18 22:49:43 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@ void	op_count(t_opcount *count, t_operation op)
 
 void	op_record(t_context *ctx, t_operation op)
 {
-	if (ctx->ops_error)
+	if (!ctx->record_ops || ctx->ops_error)
 		return ;
 	if (ctx->ops_size == ctx->ops_cap)
 	{

@@ -6,7 +6,7 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 15:45:27 by marti             #+#    #+#             */
-/*   Updated: 2026/11/17 16:05:37 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/18 22:49:17 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,7 @@ static void	init_context_data(t_context *ctx, t_args *args)
 	ctx->ops_size = 0;
 	ctx->ops_cap = 0;
 	ctx->ops_error = 0;
+	ctx->record_ops = 1;
 	ctx->config.is_bench = args->bench;
 	ctx->config.is_strategy_set = args->strategy_set;
 	ctx->config.strategy = args->strategy;

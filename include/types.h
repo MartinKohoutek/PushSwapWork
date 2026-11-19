@@ -118,6 +118,7 @@ typedef struct s_context
 	size_t		ops_cap;
 	int			ops_error;
 	double		disorder;
+	int			record_ops;
 	t_strategy	used_strategy;
 }	t_context;
 

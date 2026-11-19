@@ -1,18 +1,18 @@
+NAME		= push_swap
+BONUS_NAME	= checker
 
-NAME = push_swap
+CC			= cc
+CFLAGS		= -Wall -Wextra -Werror
+CPPFLAGS	= -I include
+DEPFLAGS	= -MMD -MP
 
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
-CPPFLAGS = -Iinclude
-DEPFLAGS = -MMD -MP
+SRC_DIR		= src
+OBJ_DIR		= obj
 
-RM = rm -f
-RMDIR = rm -rf
+RM			= rm -f
+RMDIR		= rm -rf
 
-BUILD_DIR = build
-
-SRCS = \
-	src/main.c \
+CORE_SRC = \
 	src/stack/stack.c \
 	src/stack/stack_ops.c \
 	src/stack/normalize.c \
@@ -25,9 +25,13 @@ SRCS = \
 	src/parser/capacity.c \
 	src/parser/duplicates.c \
 	src/context/context.c \
+	src/output/output.c \
 	src/utils/utils.c \
 	src/utils/memory.c \
-	src/utils/disorder.c \
+	src/utils/disorder.c
+
+PS_SRC = \
+	src/main.c \
 	src/sorting/dispatch.c \
 	src/sorting/simple.c \
 	src/sorting/simple_cost.c \
@@ -37,14 +41,22 @@ SRCS = \
 	src/sorting/complex.c \
 	src/sorting/easy.c \
 	src/sorting/small.c \
-	src/output/output.c \
 	src/benchmark/benchmark.c \
+	src/benchmark/benchmark_print.c \
 	src/optimizer/optimize.c \
-	src/optimizer/optimize_rot.c 
+	src/optimizer/optimize_rot.c
 
-	
-OBJS = $(patsubst src/%.c,$(BUILD_DIR)/%.o,$(SRCS))
-DEPS = $(OBJS:.o=.d)
+BONUS_SRC = \
+	src/bonus/checker_bonus.c \
+	src/bonus/checker_read_bonus.c
+
+CORE_OBJ	= $(addprefix $(OBJ_DIR)/, $(CORE_SRC:.c=.o))
+PS_OBJ		= $(addprefix $(OBJ_DIR)/, $(PS_SRC:.c=.o))
+BONUS_OBJ 	= $(addprefix $(OBJ_DIR)/, $(BONUS_SRC:.c=.o))
+
+DEPS		= $(CORE_OBJ:.o=.d) \
+			  $(PS_OBJ:.o=.d) \
+			  $(BONUS_OBJ:.o=.d)
 
 include config/colors.mk
 include config/banners.mk
@@ -54,29 +66,26 @@ all: banner $(NAME)
 banner:
 	@printf "$$BANNER"
 
-#$(NAME): $(OBJS)
-#	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
-$(NAME): $(OBJS)
-	@printf "\r\033[K$(C_YELLOW)$(C_BOLD)🔧 Linking: $(C_WHITE)%s$(C_RESET)\n" "$(NAME)"
-	@$(CC) $(CFLAGS) $(OBJS) -o $@
-	@printf "$(C_GREEN)$(C_BOLD)✔ Push_swap built successfully!$(C_RESET)\n"
+$(NAME): $(CORE_OBJ) $(PS_OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
 
-$(BUILD_DIR)/%.o: src/%.c
+bonus: $(BONUS_NAME)
+
+$(BONUS_NAME): $(CORE_OBJ) $(BONUS_OBJ)
+	$(CC) $(CFLAGS) $^ -o $@
+
+$(OBJ_DIR)/%.o: %.c Makefile
 	@mkdir -p $(dir $@)
-	@printf "\r\033[K$(C_BLUE)  ›  Compiling: $(C_WHITE)$<...$(C_RESET)"
-	@$(CC) $(CFLAGS) $(CPPFLAGS) $(DEPFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(CPPFLAGS) $(DEPFLAGS) -c $< -o $@
 
 clean:
-	@$(RM) $(OBJS) $(DEPS)
-	@printf "$(C_YELLOW)○ Object files cleaned.$(C_RESET)\n"
+	$(RMDIR) $(OBJ_DIR)
 
 fclean: clean
-	@$(RM) $(NAME)
-	@printf "$(C_RED)✗ Executable removed.$(C_RESET)\n"
+	$(RM) $(NAME) $(BONUS_NAME)
 
-re: fclean
-	@$(MAKE) --no-print-directory all
+re: fclean all
 
 -include $(DEPS)
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re banner
