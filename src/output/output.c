@@ -6,15 +6,12 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 17:55:48 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 22:31:21 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 10:00:05 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "output.h"
-#include "operations.h"
-#include "types.h"
-#include "benchmark.h"
+#include "push_swap.h"
 
 void	ft_write(int fd, const char *s, size_t len)
 {

@@ -6,13 +6,12 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 02:50:43 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 08:20:26 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:59:21 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 #include "utils.h"
-#include "parser.h"
 #include <stdlib.h>
 #include <limits.h>
 

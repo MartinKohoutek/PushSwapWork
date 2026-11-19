@@ -6,11 +6,10 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 07:09:25 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 07:20:49 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:33:27 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "types.h"
 #include "push_swap.h"
 
 static int	track(t_operation op, ptrdiff_t *na, ptrdiff_t *nb)

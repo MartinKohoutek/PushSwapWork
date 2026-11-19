@@ -6,14 +6,11 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 16:24:07 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 08:45:24 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 10:06:30 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stack.h"
-#include "operations.h"
-#include "sorting.h"
 
 static int	get_max_bits(size_t size)
 {
@@ -35,9 +32,9 @@ static void	radix_check(t_context *ctx, int bit)
 	if (ctx->ops_error)
 		return ;
 	if ((ctx->a.arr[0] >> bit) & 1)
-		ra(ctx);
+		exec(ctx, OP_RA);
 	else
-		pb(ctx);
+		exec(ctx, OP_PB);
 }
 
 static void	radix_sort(t_context *ctx, size_t total, int bits)
@@ -55,7 +52,7 @@ static void	radix_sort(t_context *ctx, size_t total, int bits)
 			j++;
 		}
 		while (ctx->b.size > 0 && !ctx->ops_error)
-			pa(ctx);
+			exec(ctx, OP_PA);
 		i++;
 	}
 }

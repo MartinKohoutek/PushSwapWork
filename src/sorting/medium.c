@@ -6,14 +6,11 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 07:21:27 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 08:46:12 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:47:00 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "operations.h"
-#include "stack.h"
-#include "sorting.h"
 
 static size_t	isqrt(size_t n)
 {
@@ -49,7 +46,7 @@ static void	rotate_b_to_top(t_context *ctx, size_t pos)
 	{
 		while (pos > 0 && !ctx->ops_error)
 		{
-			rb(ctx);
+			exec(ctx, OP_RB);
 			pos--;
 		}
 	}
@@ -58,7 +55,7 @@ static void	rotate_b_to_top(t_context *ctx, size_t pos)
 		rotations = ctx->b.size - pos;
 		while (rotations > 0 && !ctx->ops_error)
 		{
-			rrb(ctx);
+			exec(ctx, OP_RRB);
 			rotations--;
 		}
 	}
@@ -75,15 +72,15 @@ static void	push_chunks(t_context *ctx, size_t chunk_size)
 		rank = ctx->a.arr[0];
 		if ((size_t)rank < pushed + chunk_size)
 		{
-			pb(ctx);
+			exec(ctx, OP_PB);
 			if (ctx->ops_error)
 				break ;
 			if ((size_t)rank < pushed)
-				rb(ctx);
+				exec(ctx, OP_RB);
 			pushed++;
 		}
 		else
-			ra(ctx);
+			exec(ctx, OP_RA);
 	}
 }
 
@@ -109,6 +106,6 @@ void	sort_medium(t_context *ctx)
 		rotate_b_to_top(ctx, max_pos);
 		if (ctx->ops_error)
 			break ;
-		pa(ctx);
+		exec(ctx, OP_PA);
 	}
 }

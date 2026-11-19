@@ -1,7 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   benchmark_print.c                                  :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/19 10:03:00 by marti             #+#    #+#             */
+/*   Updated: 2026/11/19 10:03:28 by marti            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
-#include "types.h"
-#include "benchmark.h"
-#include "output.h"
+#include "push_swap.h"
 
 void	print_bench(const t_context *ctx)
 {

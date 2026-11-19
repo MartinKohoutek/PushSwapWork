@@ -1,11 +1,19 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_bonus.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/19 10:03:46 by marti             #+#    #+#             */
+/*   Updated: 2026/11/19 10:04:57 by marti            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
+#include "push_swap.h"
 #include "checker_bonus.h"
 #include "utils.h"
-#include "operations.h"
-#include "stack.h"
-#include "output.h"
-#include "parser.h"
-#include "push_swap.h"
 
 int	get_operation(const char *line, t_operation *op)
 {
@@ -36,6 +44,7 @@ int	get_operation(const char *line, t_operation *op)
 	return (1);
 }
 
+// pridat kontrolu, ctx->ops_error, aby se zpracování zastavilo při chybě
 static void	execute_ops(t_context *ctx)
 {
 	size_t	i;
@@ -43,7 +52,7 @@ static void	execute_ops(t_context *ctx)
 	i = 0;
 	while (i < ctx->ops_size)
 	{
-		op_run(ctx, ctx->ops[i]);
+		exec(ctx, ctx->ops[i]);
 		i++;
 	}
 }

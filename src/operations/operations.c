@@ -6,39 +6,12 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 09:28:33 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 22:49:43 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:33:12 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "types.h"
-#include "operations.h"
+#include "push_swap.h"
 #include "utils.h"
-
-void	op_run(t_context *ctx, t_operation op)
-{
-	if (op == OP_SA)
-		sa(ctx);
-	else if (op == OP_SB)
-		sb(ctx);
-	else if (op == OP_SS)
-		ss(ctx);
-	else if (op == OP_PA)
-		pa(ctx);
-	else if (op == OP_PB)
-		pb(ctx);
-	else if (op == OP_RA)
-		ra(ctx);
-	else if (op == OP_RB)
-		rb(ctx);
-	else if (op == OP_RR)
-		rr(ctx);
-	else if (op == OP_RRA)
-		rra(ctx);
-	else if (op == OP_RRB)
-		rrb(ctx);
-	else if (op == OP_RRR)
-		rrr(ctx);
-}
 
 const char	*op_name(t_operation op)
 {
@@ -116,4 +89,27 @@ void	op_record(t_context *ctx, t_operation op)
 	ctx->ops[ctx->ops_size] = op;
 	ctx->ops_size++;
 	op_count(&ctx->opcount, op);
+}
+
+void	exec(t_context *ctx, t_operation op)
+{
+	op_record(ctx, op);
+	if (ctx->ops_error)
+		return ;
+	if (op == OP_SA || op == OP_SS)
+		swap(&ctx->a);
+	if (op == OP_SB || op == OP_SS)
+		swap(&ctx->b);
+	if (op == OP_PA)
+		push(&ctx->a, &ctx->b);
+	if (op == OP_PB)
+		push(&ctx->b, &ctx->a);
+	if (op == OP_RA || op == OP_RR)
+		rotate(&ctx->a);
+	if (op == OP_RB || op == OP_RR)
+		rotate(&ctx->b);
+	if (op == OP_RRA || op == OP_RRR)
+		reverse_rotate(&ctx->a);
+	if (op == OP_RRB || op == OP_RRR)
+		reverse_rotate(&ctx->b);
 }

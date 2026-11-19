@@ -6,14 +6,11 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 07:08:30 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 07:20:01 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:33:43 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "types.h"
 #include "push_swap.h"
-#include "optimize.h"
-#include "operations.h"
 
 static void	init_opcount(t_opcount *ops)
 {

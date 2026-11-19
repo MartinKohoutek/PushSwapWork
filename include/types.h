@@ -100,13 +100,6 @@ typedef struct s_args
 	t_strategy	strategy;
 }	t_args;
 
-// typedef struct s_parsed_info
-// {
-// 	t_parse_status	status;
-// 	t_config		config;
-// 	t_stack			stack;
-// }	t_parsed_info;
-
 typedef struct s_context
 {
 	t_stack		a;

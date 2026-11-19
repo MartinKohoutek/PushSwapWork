@@ -6,15 +6,12 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 08:16:28 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 08:47:45 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 10:07:06 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "types.h"
-#include "operations.h"
-#include "stack.h"
-#include "sorting.h"
+#include "push_swap.h"
 
 static size_t	find_min(t_stack *a)
 {
@@ -40,12 +37,12 @@ static void	rotate_min_to_top(t_context *ctx, size_t pos_min)
 	if (pos_min <= rev)
 	{
 		while (pos_min-- > 0 && !ctx->ops_error)
-			ra(ctx);
+			exec(ctx, OP_RA);
 	}
 	else
 	{
 		while (rev-- > 0 && !ctx->ops_error)
-			rra(ctx);
+			exec(ctx, OP_RRA);
 	}
 }
 
@@ -67,9 +64,9 @@ void	sort_easy(t_context *ctx)
 		pos_min = find_min(&ctx->a);
 		rotate_min_to_top(ctx, pos_min);
 		if (!ctx->ops_error)
-			pb(ctx);
+			exec(ctx, OP_PB);
 		size--;
 	}
 	while (ctx->b.size > 0 && !ctx->ops_error)
-		pa(ctx);
+		exec(ctx, OP_PA);
 }

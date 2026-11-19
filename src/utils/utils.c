@@ -6,12 +6,9 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 10:03:41 by marti             #+#    #+#             */
-/*   Updated: 2026/11/17 15:41:11 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:36:32 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include <limits.h>
-#include <stddef.h>
 
 int	is_space(char c)
 {

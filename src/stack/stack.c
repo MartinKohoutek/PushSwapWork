@@ -6,12 +6,11 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 09:20:57 by marti             #+#    #+#             */
-/*   Updated: 2026/11/17 15:55:10 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:36:15 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
-#include <limits.h>
 #include "utils.h"
 #include "types.h"
 

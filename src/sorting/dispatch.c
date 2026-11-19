@@ -6,13 +6,11 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 16:25:51 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 08:21:59 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:34:44 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include "stack.h"
-#include "sorting.h"
 
 t_strategy	choose_strategy(const t_context *ctx)
 {

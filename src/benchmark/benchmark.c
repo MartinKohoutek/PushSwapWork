@@ -6,14 +6,12 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 19:10:46 by marti             #+#    #+#             */
-/*   Updated: 2026/11/17 19:16:54 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:31:43 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-#include "types.h"
 #include "push_swap.h"
-#include "output.h"
 
 void	print_count(const char *name, size_t count, const char *end)
 {

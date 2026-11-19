@@ -6,14 +6,12 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 07:31:22 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 08:41:39 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:35:41 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include "push_swap.h"
-#include "stack.h"
-#include "sorting.h"
 
 static int	lis(t_stack *a, int *incsub_len, int *prev)
 {

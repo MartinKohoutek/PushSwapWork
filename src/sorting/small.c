@@ -6,13 +6,11 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 08:38:31 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 08:39:31 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:56:05 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "types.h"
-#include "operations.h"
-#include "stack.h"
+#include "push_swap.h"
 
 static void	sort_three(t_context *ctx)
 {
@@ -24,21 +22,21 @@ static void	sort_three(t_context *ctx)
 	b = ctx->a.arr[1];
 	c = ctx->a.arr[2];
 	if (a > b && b < c && a < c)
-		sa(ctx);
+		exec(ctx, OP_SA);
 	else if (a > b && b > c)
 	{
-		sa(ctx);
-		rra(ctx);
+		exec(ctx, OP_SA);
+		exec(ctx, OP_RRA);
 	}
 	else if (a > b && b < c && a > c)
-		ra(ctx);
+		exec(ctx, OP_RA);
 	else if (a < b && b > c && a < c)
 	{
-		sa(ctx);
-		ra(ctx);
+		exec(ctx, OP_SA);
+		exec(ctx, OP_RA);
 	}
 	else if (a < b && b > c && a > c)
-		rra(ctx);
+		exec(ctx, OP_RRA);
 }
 
 static size_t	find_min(t_stack *a)
@@ -65,12 +63,12 @@ static void	rotate_min(t_context *ctx, size_t min_i)
 	if (min_i <= ctx->a.size / 2)
 	{
 		while (min_i-- > 0 && !ctx->ops_error)
-			ra(ctx);
+			exec(ctx, OP_RA);
 	}
 	else
 	{
 		while (rev-- > 0 && !ctx->ops_error)
-			rra(ctx);
+			exec(ctx, OP_RRA);
 	}
 }
 
@@ -83,7 +81,7 @@ int	sort_small(t_context *ctx)
 	if (ctx->a.size == 2)
 	{
 		if (ctx->a.arr[0] > ctx->a.arr[1])
-			sa(ctx);
+			exec(ctx, OP_SA);
 	}
 	else
 	{
@@ -92,12 +90,12 @@ int	sort_small(t_context *ctx)
 			min_i = find_min(&ctx->a);
 			rotate_min(ctx, min_i);
 			if (!ctx->ops_error)
-				pb(ctx);
+				exec(ctx, OP_PB);
 		}
 		if (!ctx->ops_error)
 			sort_three(ctx);
 		while (ctx->b.size > 0 && !ctx->ops_error)
-			pa(ctx);
+			exec(ctx, OP_PA);
 	}
 	return (!ctx->ops_error && is_sorted(&ctx->a));
 }

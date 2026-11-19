@@ -1,8 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   checker_read_bonus.c                               :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/11/19 10:05:12 by marti             #+#    #+#             */
+/*   Updated: 2026/11/19 10:05:23 by marti            ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <stdlib.h>
 #include <unistd.h>
 #include "checker_bonus.h"
-#include "types.h"
-#include "parser.h"
 
 static int	append_op(t_context *ctx, t_operation op)
 {

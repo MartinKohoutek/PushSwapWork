@@ -6,13 +6,12 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/18 07:35:11 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 08:02:30 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:49:16 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stddef.h>
-#include "types.h"
-#include "operations.h"
+#include "push_swap.h"
 
 static size_t	count_non_lis(size_t n, int *keep)
 {
@@ -41,10 +40,10 @@ static void	absorb_next_from_b(t_context *ctx, int *keep, int *last)
 		rank = ctx->b.arr[0];
 		if (rank != next)
 			return ;
-		pa(ctx);
+		exec(ctx, OP_PA);
 		if (ctx->ops_error)
 			return ;
-		ra(ctx);
+		exec(ctx, OP_RA);
 		if (ctx->ops_error)
 			return ;
 		keep[rank] = 1;
@@ -67,14 +66,14 @@ void	push_non_lis_to_b(t_context *ctx, int *keep)
 		if (keep[rank])
 		{
 			last = rank;
-			ra(ctx);
+			exec(ctx, OP_RA);
 			if (ctx->ops_error)
 				return ;
 			absorb_next_from_b(ctx, keep, &last);
 		}
 		else
 		{
-			pb(ctx);
+			exec(ctx, OP_PB);
 			if (ctx->ops_error)
 				return ;
 			count_to_push--;

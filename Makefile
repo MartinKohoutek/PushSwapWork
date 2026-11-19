@@ -17,10 +17,6 @@ CORE_SRC = \
 	src/stack/stack_ops.c \
 	src/stack/normalize.c \
 	src/operations/operations.c \
-	src/operations/operations_swap.c \
-	src/operations/operations_push.c \
-	src/operations/operations_rotate.c \
-	src/operations/operations_rev_rotate.c \
 	src/parser/parser.c \
 	src/parser/capacity.c \
 	src/parser/duplicates.c \

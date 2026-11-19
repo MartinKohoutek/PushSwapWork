@@ -6,14 +6,13 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 15:45:27 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 22:49:17 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:32:55 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 #include "push_swap.h"
-#include "stack.h"
 #include "utils.h"
 
 static void	init_context_data(t_context *ctx, t_args *args)

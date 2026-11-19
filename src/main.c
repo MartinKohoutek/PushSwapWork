@@ -6,19 +6,13 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 15:45:05 by marti             #+#    #+#             */
-/*   Updated: 2026/11/18 07:25:31 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 09:36:54 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <unistd.h>
 #include "push_swap.h"
-#include "parser.h"
-#include "output.h"
-#include "sorting.h"
-#include "utils.h"
-#include "benchmark.h"
-#include "optimize.h"
 
 static int	run(t_args *args)
 {
