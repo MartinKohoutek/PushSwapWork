@@ -12,39 +12,12 @@ OBJ_DIR		= obj
 RM			= rm -f
 RMDIR		= rm -rf
 
-CORE_SRC = \
-	src/stack/stack.c \
-	src/stack/stack_ops.c \
-	src/stack/normalize.c \
-	src/operations/operations.c \
-	src/parser/parser.c \
-	src/parser/capacity.c \
-	src/parser/duplicates.c \
-	src/context/context.c \
-	src/output/output.c \
-	src/utils/utils.c \
-	src/utils/memory.c \
-	src/utils/disorder.c
+CORE_SRC = stack.c stack_ops.c normalize.c operations.c parser.c \
+	core.c context.c output.c utils.c memory.c benchmark.c
 
-PS_SRC = \
-	src/main.c \
-	src/sorting/dispatch.c \
-	src/sorting/simple.c \
-	src/sorting/simple_cost.c \
-	src/sorting/simple_push.c \
-	src/sorting/simple_rotate.c \
-	src/sorting/medium.c \
-	src/sorting/complex.c \
-	src/sorting/easy.c \
-	src/sorting/small.c \
-	src/benchmark/benchmark.c \
-	src/benchmark/benchmark_print.c \
-	src/optimizer/optimize.c \
-	src/optimizer/optimize_rot.c
+PS_SRC = main.c dispatch.c simple.c medium.c complex.c
 
-BONUS_SRC = \
-	src/bonus/checker_bonus.c \
-	src/bonus/checker_read_bonus.c
+BONUS_SRC = bonus/checker_bonus.c bonus/checker_read_bonus.c
 
 CORE_OBJ	= $(addprefix $(OBJ_DIR)/, $(CORE_SRC:.c=.o))
 PS_OBJ		= $(addprefix $(OBJ_DIR)/, $(PS_SRC:.c=.o))
@@ -70,7 +43,7 @@ bonus: $(BONUS_NAME)
 $(BONUS_NAME): $(CORE_OBJ) $(BONUS_OBJ)
 	$(CC) $(CFLAGS) $^ -o $@
 
-$(OBJ_DIR)/%.o: %.c Makefile
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c Makefile
 	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(CPPFLAGS) $(DEPFLAGS) -c $< -o $@
 

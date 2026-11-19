@@ -22,7 +22,6 @@
 typedef enum e_strategy
 {
 	S_ADAPTIVE,
-	S_EASY,
 	S_SIMPLE,
 	S_MEDIUM,
 	S_COMPLEX

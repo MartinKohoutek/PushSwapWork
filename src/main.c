@@ -6,7 +6,7 @@
 /*   By: marti <marti@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/17 15:45:05 by marti             #+#    #+#             */
-/*   Updated: 2026/11/19 09:36:54 by marti            ###   ########.fr       */
+/*   Updated: 2026/11/19 15:27:03 by marti            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ static int	run(t_args *args)
 		free_context(&ctx);
 		return (1);
 	}
-	optimize(&ctx);
 	print_operations(&ctx);
 	if (ctx.config.is_bench)
 		print_bench(&ctx);
